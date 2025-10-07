@@ -1,0 +1,359 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audify</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="theme-toggle" onclick="toggleTheme()">
+            <span id="theme-icon">🌑</span>
+            <span id="theme-text">Dark Mode</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="headerr">
+            <h1>Audify</h1>
+            <h4>AI Speech Enhancement Tool</h4>
+            <p>Transform your audio with advanced deep learning. Upload noisy audio and get crystal-clear enhanced
+                speech in seconds.</p>
+        </div>
+
+        <div class="main-content">
+            <div class="upload-section">
+                <h2 class="section-title">Upload Audio</h2>
+
+                <div class="file-upload-area" id="uploadArea">
+                    <div class="upload-icon">🎤</div>
+                    <h3>Drop your audio file here</h3>
+                    <p>or click to browse</p>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">
+                        Supported formats: WAV, MP3, FLAC, OGG, M4A (max 30 seconds)
+                    </p>
+                    <input type="file" class="file-input" id="fileInput" accept=".wav,.mp3,.flac,.ogg,.m4a">
+                </div>
+
+                <div id="fileInfo" class="file-info" style="display: none;">
+                    <div class="file-icon">📄</div>
+                    <div class="file-details">
+                        <div class="file-name" id="fileName"></div>
+                        <div class="file-size" id="fileSize"></div>
+                    </div>
+                </div>
+
+                <button class="btn" id="enhanceBtn" onclick="enhanceAudio()" disabled>
+                    <span>🚀</span>
+                    Enhance Audio
+                </button>
+
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">Processing...</div>
+                </div>
+
+                <div id="statusMessage"></div>
+            </div>
+
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <h2 class="section-title">Enhanced Audio</h2>
+
+                <div id="originalAudioSection" style="display: none;">
+                    <h3 style="margin-bottom: 15px; color: var(--text-secondary);">Original Audio</h3>
+                    <div class="audio-player">
+                        <audio class="audio-controls" id="originalAudio" controls>
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-info">
+                            <span>Original Recording</span>
+                            <span id="originalDuration">--:--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="enhancedAudioSection" style="display: none;">
+                    <h3 style="margin-bottom: 15px; color: var(--primary-color);">Enhanced Audio</h3>
+                    <div class="audio-player">
+                        <audio class="audio-controls" id="enhancedAudio" controls>
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-info">
+                            <span>Enhanced Recording</span>
+                            <span id="enhancedDuration">--:--</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-secondary" id="downloadBtn" onclick="downloadEnhanced()">
+                        <span>⬇️</span>
+                        Download
+                    </button>
+                </div>
+
+                <div id="metricsSection" style="display: none;">
+                    <h3 style="margin-bottom: 15px; color: var(--text-primary);">Quality Metrics</h3>
+                    <div class="metrics-grid" id="metricsGrid">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <div class="feature-title">Deep Learning AI</div>
+                <div class="feature-description">Advanced neural network trained on thousands of audio samples for
+                    superior noise reduction and speech clarity.</div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-title">Lightning Fast</div>
+                <div class="feature-description">Optimized processing pipeline delivers enhanced audio in seconds, not
+                    minutes.</div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">Precision Enhancement</div>
+                <div class="feature-description">Preserves natural speech characteristics while effectively removing
+                    noise and artifacts.</div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">Quality Metrics</div>
+                <div class="feature-description">Comprehensive evaluation with PESQ, STOI, and SNR metrics to measure
+                    enhancement quality.</div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audify</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="theme-toggle" onclick="toggleTheme()">
+            <span id="theme-icon">🌑</span>
+            <span id="theme-text">Dark Mode</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="headerr">
+            <h1>Audify</h1>
+            <h4>AI Speech Enhancement Tool</h4>
+            <p>Transform your audio with advanced deep learning. Upload noisy audio and get crystal-clear enhanced
+                speech in seconds, or use live enhancement for real-time processing.</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Live Streaming Section -->
+            <div class="streaming-section" id="streamingSection">
+                <h2 class="section-title">🎤 Live Enhancement</h2>
+                
+                <div class="streaming-controls">
+                    <button class="btn btn-record" id="recordBtn" onclick="window.audioStreamer?.toggleRecording()">
+                        <span id="recordIcon">🎤</span>
+                        <span id="recordText">Start Live Enhancement</span>
+                    </button>
+                    
+                    <div class="volume-meter-container">
+                        <div class="volume-label">Input Level:</div>
+                        <div class="volume-meter" id="volumeMeter">
+                            <div class="volume-fill" id="volumeFill"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="streaming-status" id="streamingStatus">
+                        Checking connection...
+                    </div>
+                </div>
+                
+                <div class="audio-visualization">
+                    <canvas id="waveformCanvas" width="400" height="100"></canvas>
+                </div>
+                
+                <div class="enhanced-audio-output" id="enhancedOutput" style="display: none;">
+                    <h3>Enhanced Audio Output</h3>
+                    <audio id="enhancedOutputPlayer" controls autoplay muted></audio>
+                    <div class="output-controls">
+                        <button class="btn btn-secondary" id="outputMuteBtn" onclick="window.audioStreamer?.toggleOutputMute()">
+                            <span id="muteIcon">🔊</span>
+                            <span id="muteText">Mute Output</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Upload Section -->
+            <div class="upload-section">
+                <h2 class="section-title">📁 Upload Audio</h2>
+
+                <div class="file-upload-area" id="uploadArea">
+                    <div class="upload-icon">🎤</div>
+                    <h3>Drop your audio file here</h3>
+                    <p>or click to browse</p>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">
+                        Supported formats: WAV, MP3, FLAC, OGG, M4A (max 30 seconds)
+                    </p>
+                    <input type="file" class="file-input" id="fileInput" accept=".wav,.mp3,.flac,.ogg,.m4a">
+                </div>
+
+                <div id="fileInfo" class="file-info" style="display: none;">
+                    <div class="file-icon">📄</div>
+                    <div class="file-details">
+                        <div class="file-name" id="fileName"></div>
+                        <div class="file-size" id="fileSize"></div>
+                    </div>
+                </div>
+
+                <button class="btn" id="enhanceBtn" onclick="enhanceAudio()" disabled>
+                    <span>🚀</span>
+                    Enhance Audio
+                </button>
+
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">Processing...</div>
+                </div>
+
+                <div id="statusMessage"></div>
+            </div>
+
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <h2 class="section-title">Enhanced Audio</h2>
+
+                <div id="originalAudioSection" style="display: none;">
+                    <h3 style="margin-bottom: 15px; color: var(--text-secondary);">Original Audio</h3>
+                    <div class="audio-player">
+                        <audio class="audio-controls" id="originalAudio" controls>
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-info">
+                            <span>Original Recording</span>
+                            <span id="originalDuration">--:--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="enhancedAudioSection" style="display: none;">
+                    <h3 style="margin-bottom: 15px; color: var(--primary-color);">Enhanced Audio</h3>
+                    <div class="audio-player">
+                        <audio class="audio-controls" id="enhancedAudio" controls>
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-info">
+                            <span>Enhanced Recording</span>
+                            <span id="enhancedDuration">--:--</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-secondary" id="downloadBtn" onclick="downloadEnhanced()">
+                        <span>⬇️</span>
+                        Download
+                    </button>
+                </div>
+
+                <div id="metricsSection" style="display: none;">
+                    <h3 style="margin-bottom: 15px; color: var(--text-primary);">Quality Metrics</h3>
+                    <div class="metrics-grid" id="metricsGrid">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <div class="feature-title">Deep Learning AI</div>
+                <div class="feature-description">Advanced neural network trained on thousands of audio samples for
+                    superior noise reduction and speech clarity.</div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-title">Lightning Fast</div>
+                <div class="feature-description">Optimized processing pipeline delivers enhanced audio in seconds, with real-time streaming support.</div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">Precision Enhancement</div>
+                <div class="feature-description">Preserves natural speech characteristics while effectively removing
+                    noise and artifacts.</div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎤</div>
+                <div class="feature-title">Real-time Processing</div>
+                <div class="feature-description">Live audio enhancement with ultra-low latency for calls, recordings, and streaming.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Socket.IO for real-time streaming -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js" integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaWd2+a/1mkqVAci1x4vTzFTfPP2CdEoZTnAG2cVjBaGa4WDxTg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Main application scripts -->
+    <script src="script.js"></script>
+    
+    <!-- Streaming functionality (loaded conditionally) -->
+    <script src="streaming_frontend.js"></script>
+    
+    <script>
+        // Initialize streaming after DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if streaming is available
+            fetch('/streaming/health')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'available') {
+                        console.log('✅ Streaming available');
+                        // AudioStreamer is initialized by streaming_frontend.js
+                    } else {
+                        console.log('⚠️  Streaming not available:', data.error);
+                        // Hide streaming section
+                        const streamingSection = document.getElementById('streamingSection');
+                        if (streamingSection) {
+                            streamingSection.style.display = 'none';
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.log('⚠️  Streaming health check failed:', error);
+                    // Hide streaming section on error
+                    const streamingSection = document.getElementById('streamingSection');
+                    if (streamingSection) {
+                        streamingSection.style.display = 'none';
+                    }
+                });
+        });
+    </script>
+</body>
+
+</html>

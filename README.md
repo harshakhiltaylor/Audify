@@ -289,9 +289,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-**[Your Name]** - [your.email@example.com]
+**Harsh Tailor** - 
 
-Project Link: [https://github.com/[your-username]/audify](https://github.com/[your-username]/audify)
+Project Link: [https://github.com/harshakhiltaylor/audify](https://github.com/harshakhiltaylor/audify)
 
 ---
 
